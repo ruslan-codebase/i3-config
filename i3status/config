@@ -1,0 +1,39 @@
+
+general {
+    colors = true
+    interval = 5
+}
+
+order += "ipv6"
+order += "disk /"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "battery all"
+order += "load"
+order += "tztime local"
+
+wireless _first_ {
+    format_up = "W: %quality -> %essid"
+    format_down = "W: down"
+}
+
+ethernet _first_ {
+    format_up = "E: %ip"
+    format_down = "E: Down"
+}
+
+battery all {
+    format = "%status %percentage %remaining"
+}
+
+tztime local {
+    format = "%Y-%m-%d - %H:%M:%S"
+}
+
+load {
+    format = "load: %1min"
+}
+
+disk "/" {
+    format = "%avail"
+}
